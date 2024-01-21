@@ -45,7 +45,7 @@ df_ranked.to_excel(writer, sheet_name = 'ranked', index=False)
 # fetch only top 40 names to list from dataObject
 top_20_ranked = df_ranked['stocks'].head(20).tolist()
 
-# fetch mom prices and price changes in percentage for top 20 ranked stocks
+# fetch mom price changes in percentage for top 20 ranked stocks from previous month to current month
 map_mom = {}
 for stockName in top_20_ranked:
   try:
@@ -79,5 +79,4 @@ df_mom_ranked = df_mom_ranked.reset_index(drop=True)
 # save to csv
 #df_mom_ranked.to_csv('ranked_df_mom.csv')
 df_mom_ranked.to_excel(writer, sheet_name = 'mom', index=False)
-
 writer.close()
